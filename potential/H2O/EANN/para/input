@@ -1,0 +1,26 @@
+  1                              # start_force table for the fit with force(1) or without force(0)
+  1                              # start_wb
+  0                              # start_init
+  0                              # table_coor
+  1                              # table_grid
+  1d-2                           # biase_rmse
+  2                              # maxnumtype
+  192   192                       # maxnumatom  maxneff
+  1593                              # nsurf
+  2                              # ipsin 
+  10                             # maxnwave
+  10  10  10                   # nwave
+  200  35
+  30                             # ncycle
+  1000                          # nloop
+  1                              # nbatch
+  1593  1                        # numpoint  maxnpoint
+  1280                             # maxtpoint
+  1d0    3d1                     # perindex   force_perindex
+  6.3d0   6.3d0                     # rc
+  33                             # mnl max number of the Embeeding NN 
+  2                              # mnhid max number of the hidden layer of the Embeeding NN
+  1                              # nkpoint
+  1                              # outputneuron
+  'H'  2   20  20  0.3           # atomtype name of element  and the structure of the embedding NN  alpha*dier_rs**2  dier_rs
+  'O'  2   20  20  0.2           # atomtype name of element  and the structure of the embedding NN  alpha*dier_rs**2  dier_rs

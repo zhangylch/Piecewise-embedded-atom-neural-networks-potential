@@ -1,0 +1,18 @@
+  1                              # start_force table for the fit with force(1) or without force(0)
+  1                              # start_wb
+  0                              # start_init
+  0                              # table_coor   0 for cartesian coordinates and 1 for direct coordinates
+  110                            # num_der
+  20                             # ncycle
+  1000                           # nloop
+  1d-3                           # biase_rmse
+  68                             # nsurf
+  1                              # nbatch
+  228  90                        # numpoint  maxnpoint
+  228                            # maxtpoint
+  1d0    4d1                 # perindex
+  15                             # mnl max number of the Embeeding NN 
+  2                              # mnhid max number of the hidden layer of the Embeeding NN
+  1                              # nkpoint  number of the atnn
+  1                              # outputneuron   number of neuron in the output layer
+  'Ge'  2   15  15               # atomtype name of element  and the structure of the embedding NN 

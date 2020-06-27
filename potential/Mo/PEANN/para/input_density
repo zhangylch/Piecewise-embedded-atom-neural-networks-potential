@@ -1,0 +1,16 @@
+1                     # numtype
+54  54              # numatom
+1                     # ipsin      
+8                    # nwave       number of the grids
+250   16              # cutnum         max number of atoms in the cutoff distance
+0   0.4d0             # table_grid  init_wf
+5d0                   # rc             cutoff distance
+Mo
+    1.500000    2.000000    1.603567
+    0.428571    2.428571    7.493776
+    0.857143    2.857143    3.657041
+    1.285714    3.285714    0.615734
+    1.714286    3.714286    0.185749
+    3.042857    4.142857    0.016196
+    3.171429    4.571429    0.017248
+    3.600000    5.000000    0.009522

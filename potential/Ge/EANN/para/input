@@ -1,0 +1,25 @@
+  1                              # start_force table for the fit with force(1) or without force(0)            
+  1                              # start_wb                                                                   
+  0                              # start_init                                                                 
+  0                              # table_coor                                                                 
+  1                              # table_grid                                                                 
+  1d-2                           # biase_rmse                                                                 
+  1                              # maxnumtype                                                                 
+  64          64                 # numatom,neff
+  68                             # nsurf                                                                     
+  2                              # ipsin                                                                      
+  4                              # maxnwave                                                                    
+  4  4  4                        # nwave                                                                           
+  50         10
+  20                             # ncycle                                                                     
+  1000                           # nloop                                                                       
+  1                              # nbatch                                                                     
+  228  90                        # numpoint  maxnpoint                                                       
+  228                            # maxtpoint                                                                 
+  1d0    1d1                     # perindex   force_perindex                                                  
+  5d0   5.01                     # rc                                                                         
+  15                             # mnl max number of the Embeeding NN                                         
+  2                              # mnhid max number of the hidden layer of the Embeeding NN                   
+  1                              # nkpoint                                                                    
+  1                              # outputneuron                                                               
+  'Ge'  2   15  15  0.2          # atomtype name of element  and the structure of the embedding NN  alpha*die

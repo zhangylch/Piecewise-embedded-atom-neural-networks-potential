@@ -1,0 +1,8 @@
+1                              # numtype
+64  64                         # numatom
+2                              # ipsin      
+5                              # nwave       number of the grids
+200  10                        # cutnum         max number of atoms in the cutoff distance
+1                              # table_grid 
+5d0                            # rc             cutoff distance
+1.5   3d1     1d0              # breadth
