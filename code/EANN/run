@@ -1,0 +1,2 @@
+f2py -m EANN -h EANN.pyf mod.f90 init_pes.f90 readinput.f90 get_index.f90 allocate_all.f90 allocate_wave.f90 der_NN.f90 cart_to_frac.f90 readnn_w.f90 EANN_out.f90 get_energy.f90 get_force.f90 singleNN.f90 get_wave.f90 get_wave_force.f90 period.f90 deallocate_all.f90 --overwrite-signature
+f2py --opt="-O5" -m EANN -lmkl_rt -c EANN.pyf mod.f90 init_pes.f90 readinput.f90 get_index.f90 allocate_all.f90 allocate_wave.f90  cart_to_frac.f90 readnn_w.f90 EANN_out.f90 get_energy.f90 get_force.f90 singleNN.f90 get_wave.f90 get_wave_force.f90 period.f90 deallocate_all.f90 der_NN.f90
