@@ -1,0 +1,301 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module EANN ! in 
+    interface  ! in :EANN
+        module constant ! in :EANN:mod.f90
+            integer(kind=4), parameter,optional :: intype=4
+            integer(kind=4), parameter,optional :: typenum=8
+            integer(kind=4), parameter,optional :: atomdim=3
+            real(kind=8), parameter,optional :: pi=dacos(-1d0)
+            real(kind=8), parameter,optional :: hinc=1d-8
+        end module constant
+        module nnmod ! in :EANN:mod.f90
+            use constant
+            integer(kind=4) :: numatom
+            integer(kind=4) :: neff
+            integer(kind=4) :: numforce
+            integer(kind=4) :: gasatom
+            integer(kind=4) :: numtype
+            integer(kind=4) :: length
+            integer(kind=4) :: table_grid
+            integer(kind=4) :: ncell
+            integer(kind=4) :: maxnwave
+            integer(kind=4) :: norbit
+            integer(kind=4) :: ipsin
+            integer(kind=4) :: atomwave
+            integer(kind=4) :: totpara
+            integer(kind=4) :: mnl
+            integer(kind=4) :: mnhid
+            integer(kind=4) :: nkpoint
+            integer(kind=4) :: outputneuron
+            integer(kind=4) :: cutnum
+            integer(kind=4) :: pcutnum
+            integer(kind=4) dimension(3) :: nimage
+            integer(kind=4) dimension(3) :: numrs
+            real(kind=8) :: dier
+            real(kind=8) :: maxrc
+            real(kind=8) dimension(3,3) :: scalmatrix
+            real(kind=8) dimension(3,3) :: inv_matrix
+            real(kind=8) dimension(3) :: rangecoor
+            integer(kind=4), allocatable,dimension(:,:) :: nl
+            integer(kind=4), allocatable,dimension(:) :: nhid
+            integer(kind=4), allocatable,dimension(:) :: index_ele
+            integer(kind=4), allocatable,dimension(:) :: nwave
+            integer(kind=4), allocatable,dimension(:) :: npara
+            integer(kind=4), allocatable,dimension(:) :: index_orbit
+            integer(kind=4), allocatable,dimension(:,:) :: index_power
+            integer(kind=4), allocatable,dimension(:,:,:) :: inv_power
+            integer(kind=4), allocatable,dimension(:,:,:) :: index_rs
+            integer(kind=4), allocatable,dimension(:,:,:,:,:) :: index_numrs
+            integer(kind=4), allocatable,dimension(:) :: interaction
+            real(kind=8), allocatable,dimension(:,:) :: inta
+            real(kind=8), allocatable,dimension(:,:) :: rs
+            real(kind=8), allocatable,dimension(:) :: rc
+            real(kind=8), allocatable,dimension(:) :: rcsq
+            real(kind=8), allocatable,dimension(:,:,:,:,:) :: w
+            real(kind=8), allocatable,dimension(:,:) :: weight_wave
+            real(kind=8), allocatable,dimension(:,:) :: maxwf
+            real(kind=8), allocatable,dimension(:) :: factorial
+            real(kind=8), allocatable,dimension(:) :: factor_wave
+            real(kind=8), allocatable,dimension(:,:) :: vector
+            character(len=5), allocatable,dimension(:) :: atom
+            character(len=5), allocatable,dimension(:) :: atomtype
+            character(len=20), optional :: parafile='para'
+        end module nnmod
+        subroutine init_pes ! in :EANN:init_pes.f90
+        end subroutine init_pes
+        subroutine readinput ! in :EANN:readinput.f90
+            use constant
+            use nnmod
+        end subroutine readinput
+        subroutine get_index ! in :EANN:get_index.f90
+            use constant
+            use nnmod
+        end subroutine get_index
+        subroutine allocate_all ! in :EANN:allocate_all.f90
+            use nnmod
+        end subroutine allocate_all
+        subroutine allocate_wave ! in :EANN:allocate_wave.f90
+            use nnmod
+        end subroutine allocate_wave
+        subroutine der_nn(norbit,outputneuron,mnl,nhid,nl,zt,w,dada) ! in :EANN:der_NN.f90
+            use constant
+            integer(kind=4) intent(hide) :: norbit
+            integer(kind=4) :: outputneuron
+            integer(kind=4), optional,intent(hide),check((shape(zt,0)-1)==mnl),depend(zt) :: mnl=(shape(zt,0)-1)
+            integer(kind=4), optional,intent(hide),check((len(nl)-2)>=nhid),depend(nl) :: nhid=(len(nl)-2)
+            integer(kind=4) dimension(nhid + 2),intent(in) :: nl
+            real(kind=8) dimension(mnl + 1,nhid + 2),intent(in,out),depend(nhid) :: zt
+            real(kind=8) dimension(mnl + 1,mnl,nhid + 1),intent(in),depend(mnl,mnl,nhid) :: w
+            real(kind=8) dimension(norbit,outputneuron),intent(out),depend(norbit,outputneuron) :: dada
+        end subroutine der_nn
+        subroutine secder_nn(norbit,outputneuron,mnl,nhid,nl,zt,w,dada,d2ada) ! in :EANN:der_NN.f90
+            use constant
+            integer(kind=4) intent(hide) :: norbit
+            integer(kind=4) :: outputneuron
+            integer(kind=4), optional,intent(hide),check((shape(zt,0)-1)==mnl),depend(zt) :: mnl=(shape(zt,0)-1)
+            integer(kind=4), optional,intent(hide),check((len(nl)-2)>=nhid),depend(nl) :: nhid=(len(nl)-2)
+            integer(kind=4) dimension(nhid + 2),intent(in) :: nl
+            real(kind=8) dimension(mnl + 1,nhid + 2),intent(in,out),depend(nhid) :: zt
+            real(kind=8) dimension(mnl + 1,mnl,nhid + 1),intent(in),depend(mnl,mnl,nhid) :: w
+            real(kind=8) dimension(norbit,outputneuron),intent(out),depend(norbit,outputneuron) :: dada
+            real(kind=8) dimension(norbit,norbit,outputneuron),intent(out),depend(norbit,norbit,outputneuron) :: d2ada
+        end subroutine secder_nn
+        subroutine cart_to_frac(matrix,cart,fcoor) ! in :EANN:cart_to_frac.f90
+            use constant
+            real(kind=8) dimension(3,3) :: matrix
+            real(kind=8) dimension(3) :: cart
+            real(kind=8) dimension(3) :: fcoor
+        end subroutine cart_to_frac
+        subroutine inverse_matrix(matrix,inv_matrix) ! in :EANN:cart_to_frac.f90
+            use constant
+            real(kind=8) dimension(3,3) :: matrix
+            real(kind=8) dimension(3,3) :: inv_matrix
+        end subroutine inverse_matrix
+        subroutine readnn_w ! in :EANN:readnn_w.f90
+            use constant
+            use nnmod
+        end subroutine readnn_w
+        subroutine eann_out(table,start_force,coor,y,force) ! in :EANN:EANN_out.f90
+            use constant
+            use nnmod
+            integer(kind=4) intent(in) :: table
+            integer(kind=4) intent(in) :: start_force
+            real(kind=8) dimension(3,numatom),intent(in),check(0==0) :: coor
+            real(kind=8) intent(inout) :: y
+            real(kind=8) dimension(numforce),intent(inout) :: force
+            integer(kind=4) intent(aux,hide) :: numatom
+            integer(kind=4), optional,intent(aux,hide),check(len(force)>=numforce),depend(force) :: numforce=len(force)
+        end subroutine eann_out
+        subroutine get_energy(coor,dire,y) ! in :EANN:get_energy.f90
+            use constant
+            use nnmod
+            real(kind=8) dimension(3,numatom) :: coor
+            real(kind=8) dimension(3,numatom,length),depend(numatom) :: dire
+            real(kind=8) :: y
+            integer(kind=4), optional,intent(aux),check(shape(coor,1)==numatom),depend(coor) :: numatom=shape(coor,1)
+            integer(kind=4), optional,intent(aux),check(shape(dire,2)==length),depend(dire) :: length=shape(dire,2)
+            integer(kind=4) intent(aux) :: outputneuron
+            integer(kind=4) intent(aux) :: nkpoint
+            integer(kind=4) intent(aux) :: cutnum
+            integer(kind=4) intent(aux) :: norbit
+            integer(kind=4) intent(aux) :: mnl
+            integer(kind=4) intent(aux) :: mnhid
+        end subroutine get_energy
+        subroutine get_force(cart,dire,y,force) ! in :EANN:get_force.f90
+            use constant
+            use nnmod
+            real(kind=8) dimension(3,numatom) :: cart
+            real(kind=8) dimension(3,numatom,length),depend(numatom) :: dire
+            real(kind=8) :: y
+            real(kind=8) dimension(numforce) :: force
+            integer(kind=4) intent(aux) :: norbit
+            integer(kind=4) intent(aux) :: cutnum
+            integer(kind=4) intent(aux) :: outputneuron
+            integer(kind=4), optional,intent(aux),check(shape(cart,1)==numatom),depend(cart) :: numatom=shape(cart,1)
+            integer(kind=4), optional,intent(aux),check(shape(dire,2)==length),depend(dire) :: length=shape(dire,2)
+            integer(kind=4) intent(aux) :: nkpoint
+            integer(kind=4), optional,intent(aux),check(len(force)>=numforce),depend(force) :: numforce=len(force)
+            integer(kind=4) intent(aux) :: mnl
+            integer(kind=4) intent(aux) :: mnhid
+            integer(kind=4) intent(aux) :: pcutnum
+        end subroutine get_force
+        subroutine nn(mnl,nhid,nl,w,z) ! in :EANN:singleNN.f90
+            use constant
+            integer(kind=4), optional,check((shape(w,0)-1)==mnl),depend(w) :: mnl=(shape(w,0)-1)
+            integer(kind=4), optional,check((len(nl)-2)>=nhid),depend(nl) :: nhid=(len(nl)-2)
+            integer(kind=4) dimension(nhid + 2) :: nl
+            real(kind=8) dimension(mnl + 1,mnl,nhid + 1),depend(nhid) :: w
+            real(kind=8) dimension(mnl + 1,nhid + 2),depend(mnl,nhid) :: z
+        end subroutine nn
+        subroutine get_wave(ntype1,scutnum,index_dis,vec,dis,wf) ! in :EANN:get_wave.f90
+            use constant
+            use nnmod
+            integer(kind=4) :: ntype1
+            integer(kind=4) :: scutnum
+            integer(kind=4) dimension(cutnum) :: index_dis
+            real(kind=8) dimension(3,cutnum),depend(cutnum) :: vec
+            real(kind=8) dimension(cutnum),depend(cutnum) :: dis
+            real(kind=8) dimension(norbit) :: wf
+            integer(kind=4), optional,intent(aux),check(len(index_dis)>=cutnum),depend(index_dis) :: cutnum=len(index_dis)
+            integer(kind=4) intent(aux) :: totpara
+            integer(kind=4) intent(aux) :: numtype
+            integer(kind=4) intent(aux) :: maxnwave
+            integer(kind=4), optional,intent(aux),check(len(wf)>=norbit),depend(wf) :: norbit=len(wf)
+        end subroutine get_wave
+        subroutine get_wave_force(natom,ntype1,scutnum,index_dis,vec,dis,density,pdensity,pcenden) ! in :EANN:get_wave_force.f90
+            use constant
+            use nnmod
+            integer(kind=4) :: natom
+            integer(kind=4) :: ntype1
+            integer(kind=4) :: scutnum
+            integer(kind=4) dimension(cutnum) :: index_dis
+            real(kind=8) dimension(3,cutnum),depend(cutnum) :: vec
+            real(kind=8) dimension(cutnum),depend(cutnum) :: dis
+            real(kind=8) dimension(norbit) :: density
+            real(kind=8) dimension(3,pcutnum) :: pdensity
+            real(kind=8) dimension(3,norbit),depend(norbit) :: pcenden
+            integer(kind=4), optional,intent(aux),check(len(index_dis)>=cutnum),depend(index_dis) :: cutnum=len(index_dis)
+            integer(kind=4) intent(aux) :: totpara
+            integer(kind=4) intent(aux) :: numtype
+            integer(kind=4) intent(aux) :: maxnwave
+            integer(kind=4), optional,intent(aux),check(len(density)>=norbit),depend(density) :: norbit=len(density)
+            integer(kind=4), optional,intent(aux),check(shape(pdensity,1)==pcutnum),depend(pdensity) :: pcutnum=shape(pdensity,1)
+        end subroutine get_wave_force
+        subroutine period(natom,ntype,cart,dire,scutnum,vec,dis,index_dis) ! in :EANN:period.f90
+            use constant
+            use nnmod
+            integer(kind=4) :: natom
+            integer(kind=4) :: ntype
+            real(kind=8) dimension(3) :: cart
+            real(kind=8) dimension(3,numatom,length) :: dire
+            integer(kind=4) :: scutnum
+            real(kind=8) dimension(3,cutnum) :: vec
+            real(kind=8) dimension(cutnum),depend(cutnum) :: dis
+            integer(kind=4) dimension(cutnum),depend(cutnum) :: index_dis
+            integer(kind=4), optional,intent(aux),check(shape(dire,1)==numatom),depend(dire) :: numatom=shape(dire,1)
+            integer(kind=4), optional,intent(aux),check(shape(dire,2)==length),depend(dire) :: length=shape(dire,2)
+            integer(kind=4), optional,intent(aux),check(shape(vec,1)==cutnum),depend(vec) :: cutnum=shape(vec,1)
+        end subroutine period
+        subroutine effectcos(ntype,scutnum,dis,effect) ! in :EANN:period.f90
+            use constant
+            use nnmod
+            integer(kind=4) :: ntype
+            integer(kind=4) :: scutnum
+            real(kind=8) dimension(cutnum) :: dis
+            real(kind=8) dimension(cutnum),depend(cutnum) :: effect
+            integer(kind=4), optional,intent(aux),check(len(dis)>=cutnum),depend(dis) :: cutnum=len(dis)
+        end subroutine effectcos
+        subroutine deffect(ntype,scutnum,dis,effect,dedr) ! in :EANN:period.f90
+            use constant
+            use nnmod
+            integer(kind=4) :: ntype
+            integer(kind=4) :: scutnum
+            real(kind=8) dimension(cutnum) :: dis
+            real(kind=8) dimension(cutnum),depend(cutnum) :: effect
+            real(kind=8) dimension(cutnum),depend(cutnum) :: dedr
+            integer(kind=4), optional,intent(aux),check(len(dis)>=cutnum),depend(dis) :: cutnum=len(dis)
+        end subroutine deffect
+        subroutine dbondlendx(scutnum,vec,dis,drdx) ! in :EANN:period.f90
+            use constant
+            use nnmod
+            integer(kind=4) :: scutnum
+            real(kind=8) dimension(3,cutnum) :: vec
+            real(kind=8) dimension(cutnum),depend(cutnum) :: dis
+            real(kind=8) dimension(3,cutnum),depend(cutnum) :: drdx
+            integer(kind=4), optional,intent(aux),check(shape(vec,1)==cutnum),depend(vec) :: cutnum=shape(vec,1)
+        end subroutine dbondlendx
+        subroutine gauss_orbital(ntype1,scutnum,index_dis,dis,gauss_wave) ! in :EANN:period.f90
+            use constant
+            use nnmod
+            integer(kind=4) :: ntype1
+            integer(kind=4), optional,check(shape(gauss_wave,0)==scutnum),depend(gauss_wave) :: scutnum=shape(gauss_wave,0)
+            integer(kind=4) dimension(cutnum) :: index_dis
+            real(kind=8) dimension(cutnum),depend(cutnum) :: dis
+            real(kind=8) dimension(scutnum,maxnwave + 1) :: gauss_wave
+            integer(kind=4), optional,intent(aux),check(len(index_dis)>=cutnum),depend(index_dis) :: cutnum=len(index_dis)
+            integer(kind=4), optional,intent(aux),check((shape(gauss_wave,1)-1)==maxnwave),depend(gauss_wave) :: maxnwave=(shape(gauss_wave,1)-1)
+        end subroutine gauss_orbital
+        subroutine der_gauss(ntype1,scutnum,index_dis,vec,dis,gauss_wave,der_gauss_wave) ! in :EANN:period.f90
+            use constant
+            use nnmod
+            integer(kind=4) :: ntype1
+            integer(kind=4), optional,check(shape(gauss_wave,0)==scutnum),depend(gauss_wave) :: scutnum=shape(gauss_wave,0)
+            integer(kind=4) dimension(cutnum) :: index_dis
+            real(kind=8) dimension(3,cutnum),depend(cutnum) :: vec
+            real(kind=8) dimension(cutnum),depend(cutnum) :: dis
+            real(kind=8) dimension(scutnum,maxnwave + 1) :: gauss_wave
+            real(kind=8) dimension(3,scutnum,maxnwave + 1),depend(scutnum,maxnwave) :: der_gauss_wave
+            integer(kind=4), optional,intent(aux),check(len(index_dis)>=cutnum),depend(index_dis) :: cutnum=len(index_dis)
+            integer(kind=4), optional,intent(aux),check((shape(gauss_wave,1)-1)==maxnwave),depend(gauss_wave) :: maxnwave=(shape(gauss_wave,1)-1)
+        end subroutine der_gauss
+        subroutine wave_factor(scutnum,vec,power_vec) ! in :EANN:period.f90
+            use constant
+            use nnmod
+            integer(kind=4), optional,check(shape(power_vec,0)==scutnum),depend(power_vec) :: scutnum=shape(power_vec,0)
+            real(kind=8) dimension(3,cutnum) :: vec
+            real(kind=8) dimension(scutnum,totpara) :: power_vec
+            integer(kind=4), optional,intent(aux),check(shape(vec,1)==cutnum),depend(vec) :: cutnum=shape(vec,1)
+            integer(kind=4) intent(aux) :: ipsin
+            integer(kind=4), optional,intent(aux),check(shape(power_vec,1)==totpara),depend(power_vec) :: totpara=shape(power_vec,1)
+        end subroutine wave_factor
+        subroutine der_wave_factor(scutnum,vec,power_vec,der_power_vec) ! in :EANN:period.f90
+            use constant
+            use nnmod
+            integer(kind=4), optional,check(shape(power_vec,0)==scutnum),depend(power_vec) :: scutnum=shape(power_vec,0)
+            real(kind=8) dimension(3,cutnum) :: vec
+            real(kind=8) dimension(scutnum,totpara) :: power_vec
+            real(kind=8) dimension(3,scutnum,totpara),depend(scutnum,totpara) :: der_power_vec
+            integer(kind=4), optional,intent(aux),check(shape(power_vec,1)==totpara),depend(power_vec) :: totpara=shape(power_vec,1)
+            integer(kind=4), optional,intent(aux),check(shape(vec,1)==cutnum),depend(vec) :: cutnum=shape(vec,1)
+            integer(kind=4) intent(aux) :: ipsin
+        end subroutine der_wave_factor
+        subroutine deallocate_all ! in :EANN:deallocate_all.f90
+            use nnmod
+        end subroutine deallocate_all
+    end interface 
+end python module EANN
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/

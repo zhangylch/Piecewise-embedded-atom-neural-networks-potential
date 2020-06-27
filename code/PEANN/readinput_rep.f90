@@ -52,8 +52,6 @@ subroutine readinput_rep
        end do
        maxnpara=maxval(npara)
        norbit=nwave*(1+ipsin)
-       expon=1d0/(1d0-dexp(-alpha))
-       expalpha=-dexp(-alpha)*expon
        if (table_grid==0) then
          do ntype=1,maxnumtype
            read(100,*) 
@@ -84,7 +82,7 @@ subroutine readinput_rep
              if(initrs(j,ntype)<init_wf) initrs(j,ntype)=init_wf
              if(cenrs(j,ntype)>rc) cenrs(j,ntype)=rc
              finalrs(j,ntype)=cenrs(j,ntype)+cenrs(j,ntype)-initrs(j,ntype)
-             tmp=alpha*breadth/3.5d0**initrs(0,ntype)
+             tmp=alpha*breadth/3.5d0**initrs(j,ntype)
              normrs(j,ntype)=-tmp/(finalrs(j,ntype)-cenrs(j,ntype))**4
              expon(j,ntype)=1d0/(1d0-dexp(-tmp))
              expalpha(j,ntype)=-dexp(-tmp)*expon(j,ntype)

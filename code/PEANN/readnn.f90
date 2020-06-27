@@ -106,7 +106,7 @@ subroutine readnn
        close(123)
        numatom=0
        neff=0
-       open(100,file=trim(adjustl(parafile))//'/atom_1') 
+       open(100,file=trim(adjustl(parafile))//'/atom') 
 1011   read(100,*,end=1010) b,a
          numatom=numatom+1
          atom(numatom)=b
