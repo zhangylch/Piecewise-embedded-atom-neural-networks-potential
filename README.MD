@@ -1,4 +1,8 @@
-# Piesewise embedded atom neural network (PEANNN) model
+# Piesewise embedded atom neural network (PEANNN)
+
+Piesewise embedded atom neural network (PEANNN) is a Fortran package to fit highly efficient and accurate neural network models for interatomic potentials and molecular properties of complex systems. This project is still under active development. The current version only includes the function of using a trained model. The full package, including automatic generation of dataset, automatic filter of descriptors, as well as training new models, will be released soon.
+
+
 ## 1. Preparation:
 ---------------
 To use a trained model, users need to copy the trained model parameters in the floder "potential" to the folder "para" in the work directory, including "input","cell", "atom" and paramters of neural networks. "cell" contains the lattice parameter of the system. "atom" contains the element types in the order of the input geometry.<br>
@@ -50,4 +54,13 @@ Using an EANN model is similar as using a PEANN model. The only difference is to
 ### Bulk water
 The bulk water data were calculated by Bingqing Cheng *et.al.* *Proceedings of the National Academy of Sciences* 116, 1110-1115 (2019). Original data can be found in https://archive.materialscloud.org/2018.0020/v1.<br>
 ### Metal systems
-Cu, Ge, Mo systems were reported by Yunxing Zuo *et.al.*J. Phys. Chem. A* 124, 731-745 (2020). Original data can be found in https://github.com/materialsvirtuallab/mlearn
+Cu, Ge, Mo systems were reported by Yunxing Zuo *et.al.* *J. Phys. Chem. A* 124, 731-745 (2020). Original data can be found in https://github.com/materialsvirtuallab/mlearn
+
+## 6. References
+The original EANN model:
+
+The PEANN model:
+
+The EANN model for electronic friction tensor:
+
+The EANN model for dipole/transition dipole/polarizability
