@@ -15,7 +15,7 @@ Piesewise embedded atom neural network (PEANNN) and embedded atom neural network
        5.  force’: the array holding the atomic force of the corresponding configurations with its dimension numforce (numforce is the number of atomic forces).
 3.Python interface:
 -----------------------
-  These Fortran files can be wrapped into the PEANN.cpython-37m-x86_64-linux-gnu.so by runing the script 'run'. The interface is similar with the Fortran interface. "test.py" is an example. 
+  These Fortran files can be wrapped into the PEANN.cpython-37m-x86_64-linux-gnu.so by runing the script 'run'. The interface is similar with the Fortran interface. "test.py" is an example.<br>
     ```Python
     #! /usr/bin/env python3
     import numpy as np
