@@ -7,12 +7,13 @@ With a trained model, users can employ the model to obtain the energies and atom
 2.Fortran interface:
 ------------------
 At the beginning, users need to compile the Fortran files to obtain an executable file by the script "makefile". Then users need to call the subroutine ‘"init_pes" to do some initializations. There is a "test.f90" which is an example to calculate energy and force of corresponding configurations.Then you can pass the coordinates of configurations by calling the subroutine.<br>
-      "peann_out(table, start_force, coor, y, force)"
-       1.* "table": The form of the coordinates. "0": Cartesian coordinates. "1": Fraction coordinates.
+      "peann_out(table, start_force, coor, y, force)".<br>
+       1.* "table": The form of the coordinates. "0": Cartesian coordinates. "1": Fraction coordinates;
        2.* "start_force": "1": energies and force vectors output with the variable ‘"y" and ‘"force" in the subroutine respectively; "0": only energies obtained;
        3.* "coor": the coordinates of the configurations provided for the calculating;
        4.* "y": the array holding the energy of the corresponding configurations; 
        5.*  "force": the array holding the atomic force of the corresponding configurations with its dimension numforce (numforce is the number of atomic forces).
+
 3.Python interface:
 -----------------------
   These Fortran files can be wrapped into the PEANN.cpython-37m-x86_64-linux-gnu.so by runing the script 'run'. The interface is similar with the Fortran interface. "test.py" is an example.<br>
