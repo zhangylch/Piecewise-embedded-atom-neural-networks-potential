@@ -1,6 +1,6 @@
-# Piesewise embedded atom neural network (PEANNN)
+# Piesewise embedded atom neural network package
 
-Piesewise embedded atom neural network (PEANNN) is a Fortran package to fit highly efficient and accurate neural network models for interatomic potentials and molecular properties of complex systems. This project is still under active development. The current version only includes the function of using a trained model. The full package, including automatic generation of dataset, automatic filter of descriptors, as well as training new models, will be released soon.
+Piesewise embedded atom neural network (PEANN) is a Fortran package to fit highly efficient and accurate neural network models for interatomic potentials and molecular properties of complex systems. This project is still under active development. The current version only includes the function of using a trained model. The full package, including automatic generation of dataset, automatic filter of descriptors, as well as training new models, will be released soon.
 
 
 ## 1. Preparation:
