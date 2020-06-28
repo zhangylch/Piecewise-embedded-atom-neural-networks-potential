@@ -44,4 +44,4 @@ At the beginning, users should import the module "PEANN". Then the function name
 
 4.EANN
 -----------------------------------
-The using of EANN is similar with the PEANN. You just need to replace the "PEANN_out" with "EANN_out"
+The empoyment of EANN is similar with the PEANN. The only difference is to use "EANN_out" instead of "PEANN_out".
