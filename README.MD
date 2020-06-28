@@ -50,6 +50,6 @@ The empoyment of EANN is similar with the PEANN. The only difference is to use "
 ---------------------------------------------
 #Bulk water
 The bulk water was calculated by the Cheng et.al. in 
-		[Bulk water]:(https://archive.materialscloud.org/2018.0020/v1.)
+		[Bulk water]:(https://archive.materialscloud.org/2018.0020/v1.).<br>
 #Metal systems
 		[metal]:(https://github.com/materialsvirtuallab/mlearn)
