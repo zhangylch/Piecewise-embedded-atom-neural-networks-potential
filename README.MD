@@ -42,6 +42,6 @@ These Fortran files can be wrapped into the PEANN.cpython-37m-x86_64-linux-gnu.s
 ```
 At the beginning, users should import the module "PEANN". Then the function named "init_pes" should be called to do some initialization including load the modelparameters,allocate the allocatable arrays, etc. Next, the energy (y) and force vectors (force) of corresponding configuration (coor) can be calculated by calling "peann_out" Variables in the "peann_out" are same with that in Fortran interface. Finally, "deallocate_pes" was employed to release the allocated memories.
 
-EANN
+4.EANN
 -----------------------------------
 The using of EANN is similar with the PEANN. You just need to replace the "PEANN_out" with "EANN_out"
