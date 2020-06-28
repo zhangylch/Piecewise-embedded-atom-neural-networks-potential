@@ -2,7 +2,7 @@ Piesewise embedded atom neural network (PEANNN) and embedded atom neural network
 ===========
 1.Employ the model:
 ---------------
-   With a trained model, users can employ the model to obtain the energies and atomic force vectors of configurations. Furthermore, the models can be interfaced into the MD package for atomic simulation. In order to employ the model, you need to copy the trained model parameters in the floder "potential" to the folder "para" in the work directory.  including “input”,“cell”, “atom” and paramters of neural networks. “cell” contains the lattice parameter of the system. “atom” contains the atom names with the order of the input geometry.
+   With a trained model, users can employ the model to obtain the energies and atomic force vectors of configurations. Furthermore, the models can be interfaced into the MD package for atomic simulation. In order to employ the model, you need to copy the trained model parameters in the floder "potential" to the folder "para" in the work directory.  including “input”,“cell”, “atom” and paramters of neural networks. “cell” contains the lattice parameter of the system. “atom” contains the atom names with the order of the input geometry.<br>
 
 2.Fortran interface:
 ------------------
@@ -17,7 +17,7 @@ Piesewise embedded atom neural network (PEANNN) and embedded atom neural network
 -----------------------
   These Fortran files can be wrapped into the PEANN.cpython-37m-x86_64-linux-gnu.so by runing the script 'run'. The interface is similar with the Fortran interface. "test.py" is an example.<br>
     ```
-    import numpy as np
+    import numpy as np 
     import PEANN
     PEANN.init_pes()
     coor=np.zeros((3,PEANN.sharedmod.numatom),dtype=np.float64,order="F")
