@@ -49,8 +49,6 @@ The empoyment of EANN is similar with the PEANN. The only difference is to use "
 ## 5.data source
 ---------------------------------------------
 ### Bulk water
-The bulk water was calculated by the Ceriotti *et.al.* in Bingqing Cheng *et.al.* *Proceedings of the National Academy of Sciences* 116, 1110-1115 (2019).<br>
-		[Bulk water]:(https://archive.materialscloud.org/2018.0020/v1.).<br>
+The bulk water was calculated by the Ceriotti *et.al.* in Bingqing Cheng *et.al.* *Proceedings of the National Academy of Sciences* 116, 1110-1115 (2019).Data sets can be found in https://archive.materialscloud.org/2018.0020/v1.<br>
 ### Metal systems
-Cu, Ge, Mo systems reported by Ong *et.al.* in *J. Phys. Chem. A* 124, 731-745 (2020).<br>
-		[metal]:(https://github.com/materialsvirtuallab/mlearn)
+Cu, Ge, Mo systems reported by Ong *et.al.* in *J. Phys. Chem. A* 124, 731-745 (2020).Data sets can be found in https://github.com/materialsvirtuallab/mlearn
