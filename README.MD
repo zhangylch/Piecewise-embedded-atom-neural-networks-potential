@@ -19,7 +19,7 @@ At the beginning, users need to compile the Fortran files to obtain an executabl
   These Fortran files can be wrapped into the PEANN.cpython-37m-x86_64-linux-gnu.so by runing the script "run". The interface is similar with the Fortran interface. "test.py" is an example.<br>
     ```
 	import numpy as np 
-	import PEANN
+	import PEANN 
 	PEANN.init_pes()
 	coor=np.zeros((3,PEANN.sharedmod.numatom),dtype=np.float64,order="F")
 	force=np.zeros((PEANN.sharedmod.numforce),dtype=np.float64)
@@ -40,4 +40,4 @@ At the beginning, users need to compile the Fortran files to obtain an executabl
 	      print(force)
 	PEANN.deallocate_all()
     ```
-  At the beginning, users should import the module ‘PEANN’. Then the function named “init_pes” should be called to do some initialization including load the modelparameters,allocate the allocatable arrays, etc. Next, the energy (y) and force vectors (force) of corresponding configuration (fcoor) can be calculated by calling “peann_out” Variables in the “peann_out” are same with that in Fortran interface. Finally, “deallocate_pes” was employed to release the allocated memories.
+At the beginning, users should import the module "PEANN". Then the function named "init_pes" should be called to do some initialization including load the modelparameters,allocate the allocatable arrays, etc. Next, the energy (y) and force vectors (force) of corresponding configuration (coor) can be calculated by calling "peann_out" Variables in the "peann_out" are same with that in Fortran interface. Finally, "deallocate_pes" was employed to release the allocated memories.
