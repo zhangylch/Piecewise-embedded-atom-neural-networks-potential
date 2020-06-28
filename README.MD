@@ -13,6 +13,7 @@ Piesewise embedded atom neural network (PEANN) is a Fortran package to fit highl
 >>>3. "coor": the coordinates of the configurations provided for the calculating;<br>
 >>>4. "y": the array holding the energy of the corresponding configurations; <br>
 >>>5. "force": the array holding the atomic force of the corresponding configurations with its dimension numforce (numforce is the number of atomic forces).<br>
+
 >Finally, "deallocate_pes" was employed to release the allocated memories.<br>
 
 ### 2. Fortran to Python interface:
