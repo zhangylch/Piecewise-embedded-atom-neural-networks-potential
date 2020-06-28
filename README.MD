@@ -1,5 +1,4 @@
 # Piesewise embedded atom neural network (PEANNN) and embedded atom neural network(EANN)
-=====================
 ## 1.Employ the model:
 ---------------
 With a trained model, users can employ the model to obtain the energies and atomic force vectors of configurations. Furthermore, the models can be interfaced into the MD package for atomic simulation. In order to employ the model, you need to copy the trained model parameters in the floder "potential" to the folder "para" in the work directory.  including "input","cell", "atom" and paramters of neural networks. "cell" contains the lattice parameter of the system. "atom" contains the atom names with the order of the input geometry.<br>
