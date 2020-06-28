@@ -1,5 +1,5 @@
 # Piesewise embedded atom neural network (PEANNN) and embedded atom neural network(EANN)
-===========
+=======
 ## 1.Employ the model:
 ---------------
 With a trained model, users can employ the model to obtain the energies and atomic force vectors of configurations. Furthermore, the models can be interfaced into the MD package for atomic simulation. In order to employ the model, you need to copy the trained model parameters in the floder "potential" to the folder "para" in the work directory.  including "input","cell", "atom" and paramters of neural networks. "cell" contains the lattice parameter of the system. "atom" contains the atom names with the order of the input geometry.<br>
@@ -49,6 +49,6 @@ The empoyment of EANN is similar with the PEANN. The only difference is to use "
 ## 5.data source
 ---------------------------------------------
 ### Bulk water
-The bulk water was calculated by the Ceriotti *et.al.* in Bingqing Cheng *et.al.* *Proceedings of the National Academy of Sciences* 116, 1110-1115 (2019).Data sets can be found in https://archive.materialscloud.org/2018.0020/v1.<br>
+The bulk water was calculated by the Ceriotti *et.al.* in Bingqing Cheng *et.al.* *Proceedings of the National Academy of Sciences* 116, 1110-1115 (2019). Data sets can be found in https://archive.materialscloud.org/2018.0020/v1.<br>
 ### Metal systems
-Cu, Ge, Mo systems reported by Ong *et.al.* in *J. Phys. Chem. A* 124, 731-745 (2020).Data sets can be found in https://github.com/materialsvirtuallab/mlearn
+Cu, Ge, Mo systems reported by Ong *et.al.* in *J. Phys. Chem. A* 124, 731-745 (2020). Data sets can be found in https://github.com/materialsvirtuallab/mlearn
