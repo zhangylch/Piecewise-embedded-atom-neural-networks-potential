@@ -1,23 +1,21 @@
 # Piesewise embedded atom neural network package
 
-Piesewise embedded atom neural network (PEANN) is a Fortran package to fit highly efficient and accurate neural network models for interatomic potentials and molecular properties of complex systems. This project is still under active development. The current version only includes the function of using a trained model. The full package, including automatic generation of dataset, automatic filter of descriptors, as well as training new models, will be released soon.
+Piesewise embedded atom neural network (PEANN) is a Fortran package to fit highly efficient and accurate neural network models for interatomic potentials and molecular properties of complex systems. This project is still under active development. The current version only includes the function of using a trained model. The full package, including automatic generation of dataset, automatic filter of descriptors, as well as training new models, will be released soon.<br>
 
-
-## 1. Preparation:
----------------
-To use a trained model, users need to copy the trained model parameters in the floder "potential" to the folder "para" in the work directory, including "input","cell", "atom" and paramters of neural networks. "cell" contains the lattice parameter of the system. "atom" contains the element types in the order of the input geometry.<br>
-
-## 2. Fortran interface:
+## 1. Compling a model:
+----------------------
+### 1. Direct employment in Fortran:
 ------------------
-At the beginning, users need to compile the Fortran files to obtain an executable file by the script "makefile". Then users can call the subroutine ‘"init_pes" to do some initializations. There is a "test.f90" which is an example to calculate the energy and force of a given configuration.Then you can pass the coordinates of configurations by calling the subroutine.<br>
->>"peann_out(table, start_force, coor, y, force)".<br>
->>>>1. "table": The form of the coordinates. "0": Cartesian coordinates. "1": Fraction coordinates; <br>
->>>>2. "start_force": "1": energies and force vectors output with the variable ‘"y" and ‘"force" in the subroutine respectively; "0": only energies obtained;<br>
->>>>3. "coor": the coordinates of the configurations provided for the calculating;<br>
->>>>4. "y": the array holding the energy of the corresponding configurations; <br>
->>>>5. "force": the array holding the atomic force of the corresponding configurations with its dimension numforce (numforce is the number of atomic forces).<br>
+At the beginning, users need to compile the Fortran files to obtain an executable file by the script "makefile". Then users can call the subroutine ‘"init_pes" to do some initializations. There is a "test.f90" which is an example to calculate the energy and force of a given configuration.Then users can pass the coordinates of configurations by calling the subroutine.<br>
+>"peann_out(table, start_force, coor, y, force)".<br>
+>>1. "table": The form of the coordinates. "0": Cartesian coordinates. "1": Fraction coordinates; <br>
+>>2. "start_force": "1": energies and force vectors output with the variable "y" and "force" in the subroutine respectively; "0": only energies obtained;<br>
+>>3. "coor": the coordinates of the configurations provided for the calculating;<br>
+>>4. "y": the array holding the energy of the corresponding configurations; <br>
+>>5. "force": the array holding the atomic force of the corresponding configurations with its dimension numforce (numforce is the number of atomic forces).<br>
+Finally, "deallocate_pes" was employed to release the allocated memories.<br>
 
-## 3. Python interface:
+### 2. Fortran to Python interface:
 -----------------------
 These Fortran files can be wrapped into the PEANN.cpython-37m-x86_64-linux-gnu.so by runing the script "run". The interface is similar with the Fortran interface. "test.py" is an example.<br>
 ```python
@@ -43,24 +41,25 @@ These Fortran files can be wrapped into the PEANN.cpython-37m-x86_64-linux-gnu.s
 		      print(force)
 		PEANN.deallocate_all()
 ```
-At the beginning, users should import the module "PEANN". Then the function named "init_pes" should be called to do some initialization including load the modelparameters,allocate the allocatable arrays, etc. Next, the energy (y) and force vectors (force) of corresponding configuration (coor) can be calculated by calling "peann_out" Variables in the "peann_out" are same with that in Fortran interface. Finally, "deallocate_pes" was employed to release the allocated memories.
+At the beginning, users should import the module "PEANN". Then the function named "init_pes" should be called to do some initializations including load the model parameters,allocate the allocatable arrays, etc. Next, the energy (y) and force vectors (force) of corresponding configuration (coor) can be calculated by calling "peann_out". Arguments in the "peann_out" are same with that in Fortran. Finally, "deallocate_pes" was employed to release the allocated memories.<br>
+With a compiled executable file, users need to copy the trained model parameters in the floder "potential" to the folder "para" in the work directory, including "input_density", "input", "cell", "atom" and paramters of neural networks. "input_density" and "input_nn" contain the hyper-parameters of descriptors and neural networks. "cell" contains the lattice parameters of the system. "atom" contains the element types in the order of the input geometry.<br>
 
-## 4. Embedded atom neural network
+## 3. Embedded atom neural network:
 -----------------------------------
 Using an EANN model is similar as using a PEANN model. The only difference is to use "EANN_out" instead of "PEANN_out".
 
-## 5. ab initio data source
+## 4. Ab initio data source:
 ---------------------------------------------
-### Bulk water
+### Bulk water:
 The bulk water data were calculated by Bingqing Cheng *et.al.* *Proceedings of the National Academy of Sciences* 116, 1110-1115 (2019). Original data can be found in https://archive.materialscloud.org/2018.0020/v1.<br>
-### Metal systems
+### Metal systems:
 Cu, Ge, Mo systems were reported by Yunxing Zuo *et.al.* *J. Phys. Chem. A* 124, 731-745 (2020). Original data can be found in https://github.com/materialsvirtuallab/mlearn
 
-## 6. References
-The original EANN model:
+## 5. References:
+The original EANN model: Yaolong Zhang *et. al.* *J. Phys. Chem. Lett.* 10, 4962-4967 (2019).
 
-The PEANN model:
+The PEANN model: 
 
-The EANN model for electronic friction tensor:
+The EANN model for electronic friction tensor: Yaolong Zhang *et. al.* *J. Phys. Chem. C* 124, 186 (2020).
 
-The EANN model for dipole/transition dipole/polarizability
+The EANN model for dipole/transition dipole/polarizability: arXiv:2004.13605
