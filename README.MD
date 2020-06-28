@@ -16,7 +16,7 @@ At the beginning, users need to compile the Fortran files to obtain an executabl
 
 3.Python interface:
 -----------------------
-  These Fortran files can be wrapped into the PEANN.cpython-37m-x86_64-linux-gnu.so by runing the script 'run'. The interface is similar with the Fortran interface. "test.py" is an example.<br>
+  These Fortran files can be wrapped into the PEANN.cpython-37m-x86_64-linux-gnu.so by runing the script "run". The interface is similar with the Fortran interface. "test.py" is an example.<br>
     ```
 	import numpy as np 
 	import PEANN
