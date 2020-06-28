@@ -2,7 +2,7 @@
 
 FC = ifort
 
- FFLAGS = -O5 -pg  #  -CB -g -traceback -debug parallel
+ FFLAGS = -O5 -xhost -ipo  #  -CB -g -traceback -debug parallel
  LDFLAGS = -lmkl_rt
 
 #FFLAGS = -O2 -openmp -static

@@ -3,7 +3,7 @@
 FC = ifort
 # -pg
 
- FFLAGS = -O5  -pg #   -CB -g -traceback -debug parallel
+ FFLAGS = -O5  -xhost -ipo #   -CB -g -traceback -debug parallel
  LDFLAGS = -L /share/software/compiler/intel/intel-compiler-2017.5.239/mkl -lmkl_rt
 
 #FFLAGS = -O2 -openmp -static
