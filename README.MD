@@ -18,7 +18,7 @@ Piesewise embedded atom neural network (PEANN) is a Fortran package to fit highl
 
 ### 2. Fortran to Python interface:
 -----------------------
->These Fortran files can be wrapped into the PEANN.cpython-37m-x86_64-linux-gnu.so by runing the script "run". The interface is similar with the Fortran interface. "test.py" is an example.<br>
+>These Fortran files can be wrapped into the PEANN.cpython-37m-x86_64-linux-gnu.so by runing the script "run". The interface is similar with the subroutine "PEANN_out" in Fortran. "test.py" is an example.<br>
 ```python
 		import numpy as np 
 		import PEANN 
