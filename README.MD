@@ -45,3 +45,11 @@ At the beginning, users should import the module "PEANN". Then the function name
 4.EANN
 -----------------------------------
 The empoyment of EANN is similar with the PEANN. The only difference is to use "EANN_out" instead of "PEANN_out".
+
+5.data source
+---------------------------------------------
+#Bulk water
+The bulk water was calculated by the Cheng et.al. in 
+		[Bulk water]:(https://archive.materialscloud.org/2018.0020/v1.)
+#Metal systems
+		[metal]:(https://github.com/materialsvirtuallab/mlearn)
