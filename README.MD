@@ -42,9 +42,9 @@ Piesewise embedded atom neural network (PEANN) is a Fortran package to fit highl
 		      print(force)
 		PEANN.deallocate_all()
 ```
->At the beginning, users should import the module "PEANN". Then the function named "init_pes" should be called to do some initializations including load the model parameters,allocate the allocatable arrays, etc. Next, the energy (y) and force vectors (force) of corresponding configuration (coor) can be calculated by calling "peann_out". Arguments in the "peann_out" are same with that in Fortran. Finally, "deallocate_pes" was employed to release the allocated memories.<br>
+>At the beginning, users should import the module "PEANN". Then the function named "init_pes" should be called to do some initializations including loading the model parameters, allocating the allocatable arrays, etc. Next, the energy (y) and force vectors (force) of corresponding configuration (coor) can be calculated by calling "peann_out". Arguments in the "peann_out" are same with that in Fortran. Finally, "deallocate_pes" is employed to release the allocated memories.<br>
 
-With a compiled executable file, users need to copy the trained model parameters in the floder "potential" to the folder "para" in the work directory, including "input_density", "input", "cell", "atom" and paramters of neural networks. "input_density" and "input_nn" contain the hyper-parameters of descriptors and neural networks. "cell" contains the lattice parameters of the system. "atom" contains the element types in the order of the input geometry.<br>
+With a compiled executable file, users need to copy the trained model parameters in the floder "potential" to the folder "para" in the work directory, including "input_density", "input", "cell", "atom" and paramters of neural networks. "input_density" and "input_nn" contain the hyper-parameters of descriptors and neural networks respectively. "cell" contains the lattice parameters of the system. "atom" contains the element types in the order of the input geometry.<br>
 
 ## 3. Embedded atom neural network:
 -----------------------------------
