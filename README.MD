@@ -8,14 +8,15 @@ Piesewise embedded atom neural network (PEANNN) and embedded atom neural network
 ------------------
      At the beginning, users need to compile the Fortran files to obtain an executable file by the script "makefile". Then users need to call the subroutine ‘init_pes’ to do some initializations. There is a "test.f90" which is an example to calculate energy and force of corresponding configurations.Then you can pass the coordinates of configurations by calling the subroutine.
       “peann_out(table, start_force, coor, y, force)”
-       * “table”: The form of the coordinates. “0”: Cartesian coordinates. “1”: Fraction coordinates.
-       * “start_force”: “1”: energies and force vectors output with the variable ‘y’ and ‘force’ in the subroutine respectively; “0”: only energies obtained;
-       * “coor”: the coordinates of the configurations provided for the calculating;
-       * ‘y’: the array holding the energy of the corresponding configurations; 
-       * ‘force’: the array holding the atomic force of the corresponding configurations with its dimension numforce (numforce is the number of atomic forces).
+       1.* table”: The form of the coordinates. “0”: Cartesian coordinates. “1”: Fraction coordinates.
+       2.*“start_force”: “1”: energies and force vectors output with the variable ‘y’ and ‘force’ in the subroutine respectively; “0”: only energies obtained;
+       3.*“coor”: the coordinates of the configurations provided for the calculating;
+       4.* y’: the array holding the energy of the corresponding configurations; 
+       5.* force’: the array holding the atomic force of the corresponding configurations with its dimension numforce (numforce is the number of atomic forces).
 3.Python interface:
 -----------------------
   These Fortran files can be wrapped into the PEANN.cpython-37m-x86_64-linux-gnu.so by runing the script 'run'. The interface is similar with the Fortran interface. "test.py" is an example. 
+    ``` python
     #! /usr/bin/env python3
     import numpy as np
     import PEANN
@@ -38,4 +39,5 @@ Piesewise embedded atom neural network (PEANNN) and embedded atom neural network
           print(y)
           print(force)
     PEANN.deallocate_all()
+    ```
   At the beginning, users should import the module ‘PEANN’. Then the function named “init_pes” should be called to do some initialization including load the modelparameters,allocate the allocatable arrays, etc. Next, the energy (y) and force vectors (force) of corresponding configuration (fcoor) can be calculated by calling “peann_out” Variables in the “peann_out” are same with that in Fortran interface. Finally, “deallocate_pes” was employed to release the allocated memories.
