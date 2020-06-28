@@ -18,7 +18,7 @@ At the beginning, users need to compile the Fortran files to obtain an executabl
 -----------------------
   These Fortran files can be wrapped into the PEANN.cpython-37m-x86_64-linux-gnu.so by runing the script "run". The interface is similar with the Fortran interface. "test.py" is an example.<br>
     ```
-	import numpy as np 
+	import numpy as np <br>
 	import PEANN
 	PEANN.init_pes()
 	coor=np.zeros((3,PEANN.sharedmod.numatom),dtype=np.float64,order="F")
