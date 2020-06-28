@@ -64,4 +64,4 @@ The PEANN model:
 
 The EANN model for electronic friction tensor: Yaolong Zhang *et. al.* *J. Phys. Chem. C* 124, 186 (2020).
 
-The EANN model for dipole/transition dipole/polarizability: arXiv:2004.13605
+The EANN model for dipole/transition dipole/polarizability: Yaolong Zhang *et. al.* arXiv:2004.13605
