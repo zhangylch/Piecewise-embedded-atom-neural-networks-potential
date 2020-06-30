@@ -4,7 +4,7 @@ Piesewise embedded atom neural network (PEANN) is a Fortran package to fit highl
 
 ## 1. Employ a model:
 ----------------------
-### 1. Direct employment in Fortran:
+### 1. Direct use in Fortran:
 ------------------
 >At the beginning, users need to compile the Fortran files to obtain an executable file by the script "makefile". Then users can call the subroutine ‘"init_pes" to do some initializations. There is a "test.f90" which is an example to calculate the energy and force of a given configuration. Then users can pass the coordinates of configurations by calling the subroutine.<br>
 >>"peann_out(table, start_force, coor, y, force)".<br>
@@ -14,7 +14,7 @@ Piesewise embedded atom neural network (PEANN) is a Fortran package to fit highl
 >>>4. "y": the array holding the energy of the corresponding configurations; <br>
 >>>5. "force": the array holding the atomic force of the corresponding configurations with its dimension numforce (numforce is the number of atomic forces).<br>
 
->Finally, "deallocate_pes" was employed to release the allocated memories.<br>
+>Finally, Call "deallocate_pes" to release the allocated memories.<br>
 
 ### 2. Fortran to Python interface:
 -----------------------
