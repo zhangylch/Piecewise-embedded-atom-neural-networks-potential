@@ -58,7 +58,7 @@ The bulk water data were calculated by Bingqing Cheng *et.al.* *Proceedings of t
 Cu, Ge, Mo systems were reported by Yunxing Zuo *et.al.* *J. Phys. Chem. A* 124, 731-745 (2020). Original data can be found in https://github.com/materialsvirtuallab/mlearn
 
 ## 5. References:
-The original EANN model: Yaolong Zhang, Ce Hu, Bin Jiang<sup>*<sup> *J. Phys. Chem. Lett.* 10, 4962-4967 (2019).
+The original EANN model: Yaolong Zhang, Ce Hu, Bin Jiang<sup>*</sup> *J. Phys. Chem. Lett.* 10, 4962-4967 (2019).
 
 The PEANN model: Yaolong Zhang *et. al.* arXiv:2006.16482
 
