@@ -60,7 +60,7 @@ Cu, Ge, Mo systems were reported by Yunxing Zuo *et.al.* *J. Phys. Chem. A* 124,
 ## 5. References:
 The original EANN model: Yaolong Zhang *et. al.* *J. Phys. Chem. Lett.* 10, 4962-4967 (2019).
 
-The PEANN model: 
+The PEANN model: Yaolong Zhang *et. al.* arXiv:2006.16482
 
 The EANN model for electronic friction tensor: Yaolong Zhang *et. al.* *J. Phys. Chem. C* 124, 186 (2020).
 
