@@ -58,10 +58,10 @@ The bulk water data were calculated by Bingqing Cheng *et.al.* *Proceedings of t
 Cu, Ge, Mo systems were reported by Yunxing Zuo *et.al.* *J. Phys. Chem. A* 124, 731-745 (2020). Original data can be found in https://github.com/materialsvirtuallab/mlearn
 
 ## 5. References:
-The original EANN model: Yaolong Zhang, Ce Hu, Bin Jiang<sup>*</sup> *J. Phys. Chem. Lett.* 10, 4962-4967 (2019).
+The original EANN model: Yaolong Zhang, Ce Hu and Bin Jiang<sup>*</sup> *J. Phys. Chem. Lett.* 10, 4962-4967 (2019).
 
-The PEANN model: Yaolong Zhang *et. al.* arXiv:2006.16482
+The PEANN model: Yaolong Zhang, Ce Hu and Bin Jiang<sup>*</sup> arXiv:2006.16482
 
-The EANN model for electronic friction tensor: Yaolong Zhang *et. al.* *J. Phys. Chem. C* 124, 186 (2020).
+The EANN model for electronic friction tensor:  Yaolong Zhang, R.J. Maurer and  Bin Jiang<sup>*</sup> *J. Phys. Chem. C* 124, 186 (2020).
 
-The EANN model for dipole/transition dipole/polarizability: Yaolong Zhang *et. al.* arXiv:2004.13605
+The EANN model for dipole/transition dipole/polarizability: Yaolong Zhang  Sheng Ye, Jinxiao Zhang, Jun Jiang and Bin Jiang<sup>*</sup> arXiv:2004.13605
