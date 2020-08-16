@@ -64,4 +64,4 @@ The PEANN model: Yaolong Zhang, Ce Hu and Bin Jiang<sup>*</sup> arXiv:2006.16482
 
 The EANN model for electronic friction tensor:  Yaolong Zhang, R.J. Maurer and  Bin Jiang<sup>*</sup> *J. Phys. Chem. C* 124, 186 (2020).
 
-The EANN model for dipole/transition dipole/polarizability: Yaolong Zhang  Sheng Ye, Jinxiao Zhang, Jun Jiang and Bin Jiang<sup>*</sup> arXiv:2004.13605
+The EANN model for dipole/transition dipole/polarizability: Yaolong Zhang  Sheng Ye, Jinxiao Zhang, Jun Jiang and Bin Jiang<sup>*</sup> *J. Phys. Chem. B* [doi](10.1021/acs.jpcb.0c06926)
