@@ -12,7 +12,7 @@ subroutine der_NN(norbit,outputneuron,mnl,nhid,nl,zt,w,dada)
 !f2py real(kind=typenum),intent(in,out) :: zt
 !f2py real(kind=typenum),intent(out) :: dada
 !f2py real(kind=typenum),intent(in) :: w
-     tmp1(:,1:nl(1))=w(1:nl(0),1:nl(0),1) 
+     tmp1(:,1:nl(1))=w(1:nl(0),1:nl(1),1) 
      do flayer=1,nhid,1 
        do fneuron=1,nl(flayer)
          tmp(:,fneuron)=tmp1(:,fneuron)*(1d0-zt(fneuron,flayer)*zt(fneuron,flayer))
